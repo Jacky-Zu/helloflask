@@ -11,10 +11,11 @@ from flask import Flask
 app = Flask(__name__)
 
 
+
 # the minimal Flask application
 @app.route('/')
 def index():
-    return '<h1>Hello, World!</h1>'
+    return '<h1>There is my first webpage based on flask!</h1>'
 
 
 # bind multiple URL for one view function
@@ -32,7 +33,7 @@ def greet(name):
 
 
 # custom flask cli command
-@app.cli.command()
+@app.cli.command('say-hello')
 def hello():
     """Just say hello."""
     click.echo('Hello, Human!')
