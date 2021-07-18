@@ -5,6 +5,8 @@ name = "pypi"
 
 [dev-packages]
 watchdog = "*"
+flake8 = "*"
+yapf = "*"
 
 [packages]
 python-dotenv = "*"
