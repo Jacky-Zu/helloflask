@@ -7,6 +7,7 @@
 <body>
 <a href="{{ url_for('index') }}">&larr; Return</a>
 <h2>{{ user.username }}</h2>
+{# i标签表示斜体，ul--li标签表示无序列表，ol--li表示有序列表 #}
 {% if user.bio %}
     <i>{{ user.bio }}</i>
 {% else %}
@@ -16,7 +17,7 @@
 <h5>{{ user.username }}'s Watchlist ({{ movies|length }}):</h5>
 <ul>
     {% for movie in movies %}
-    <li>{{ movie.name }} - {{ movie.year }}</li>
+    <li>{{ movie.name }} - {{ movie.Year }}</li>
     {% endfor %}
 </ul>
 </body>
