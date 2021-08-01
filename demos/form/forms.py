@@ -16,7 +16,9 @@ from wtforms.validators import DataRequired, Length, ValidationError, Email
 # 4.2.1 basic form example
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+    password = PasswordField('Password',
+                             validators=[DataRequired(),
+                                         Length(8, 128)])
     remember = BooleanField('Remember me')
     submit = SubmitField('Log in')
 
@@ -33,7 +35,11 @@ class FortyTwoForm(FlaskForm):
 
 # upload form
 class UploadForm(FlaskForm):
-    photo = FileField('Upload Image', validators=[FileRequired(), FileAllowed(['jpg', 'jpeg', 'png', 'gif'])])
+    photo = FileField('Upload Image',
+                      validators=[
+                          FileRequired(),
+                          FileAllowed(['jpg', 'jpeg', 'png', 'gif'])
+                      ])
     submit = SubmitField()
 
 
@@ -52,28 +58,50 @@ class NewPostForm(FlaskForm):
 
 
 class SigninForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(1, 20)])
-    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+    username = StringField('Username',
+                           validators=[DataRequired(),
+                                       Length(1, 20)])
+    password = PasswordField('Password',
+                             validators=[DataRequired(),
+                                         Length(8, 128)])
     submit1 = SubmitField('Sign in')
 
 
 class RegisterForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(1, 20)])
-    email = StringField('Email', validators=[DataRequired(), Email(), Length(1, 254)])
-    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+    username = StringField('Username',
+                           validators=[DataRequired(),
+                                       Length(1, 20)])
+    email = StringField('Email',
+                        validators=[DataRequired(),
+                                    Email(),
+                                    Length(1, 254)])
+    password = PasswordField('Password',
+                             validators=[DataRequired(),
+                                         Length(8, 128)])
     submit2 = SubmitField('Register')
 
 
 class SigninForm2(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(1, 24)])
-    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+    username = StringField('Username',
+                           validators=[DataRequired(),
+                                       Length(1, 24)])
+    password = PasswordField('Password',
+                             validators=[DataRequired(),
+                                         Length(8, 128)])
     submit = SubmitField()
 
 
 class RegisterForm2(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(1, 24)])
-    email = StringField('Email', validators=[DataRequired(), Email(), Length(1, 254)])
-    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+    username = StringField('Username',
+                           validators=[DataRequired(),
+                                       Length(1, 24)])
+    email = StringField('Email',
+                        validators=[DataRequired(),
+                                    Email(),
+                                    Length(1, 254)])
+    password = PasswordField('Password',
+                             validators=[DataRequired(),
+                                         Length(8, 128)])
     submit = SubmitField()
 
 

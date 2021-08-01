@@ -150,9 +150,7 @@ def multi_upload():
             # check the file extension
             if f and allowed_file(f.filename):
                 filename = random_filename(f.filename)
-                f.save(os.path.join(
-                    app.config['UPLOAD_PATH'], filename
-                ))
+                f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
                 filenames.append(filename)
             else:
                 flash('Invalid file type.')
@@ -173,9 +171,7 @@ def dropzone_upload():
 
         if f and allowed_file(f.filename):
             filename = random_filename(f.filename)
-            f.save(os.path.join(
-                app.config['UPLOAD_PATH'], filename
-            ))
+            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
         else:
             return 'Invalid file type.', 400
     return render_template('dropzone.html')
@@ -210,14 +206,18 @@ def multi_form():
         flash('%s, you just submit the Register Form.' % username)
         return redirect(url_for('index'))
 
-    return render_template('2form.html', signin_form=signin_form, register_form=register_form)
+    return render_template('2form.html',
+                           signin_form=signin_form,
+                           register_form=register_form)
 
 
 @app.route('/multi-form-multi-view')
 def multi_form_multi_view():
     signin_form = SigninForm2()
     register_form = RegisterForm2()
-    return render_template('2form2view.html', signin_form=signin_form, register_form=register_form)
+    return render_template('2form2view.html',
+                           signin_form=signin_form,
+                           register_form=register_form)
 
 
 @app.route('/handle-signin', methods=['POST'])
@@ -230,7 +230,9 @@ def handle_signin():
         flash('%s, you just submit the Signin Form.' % username)
         return redirect(url_for('index'))
 
-    return render_template('2form2view.html', signin_form=signin_form, register_form=register_form)
+    return render_template('2form2view.html',
+                           signin_form=signin_form,
+                           register_form=register_form)
 
 
 @app.route('/handle-register', methods=['POST'])
@@ -242,7 +244,9 @@ def handle_register():
         username = register_form.username.data
         flash('%s, you just submit the Register Form.' % username)
         return redirect(url_for('index'))
-    return render_template('2form2view.html', signin_form=signin_form, register_form=register_form)
+    return render_template('2form2view.html',
+                           signin_form=signin_form,
+                           register_form=register_form)
 
 
 @app.route('/ckeditor', methods=['GET', 'POST'])
